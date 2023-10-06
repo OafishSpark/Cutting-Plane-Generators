@@ -7,24 +7,23 @@ from pysmps import smps_loader as mps
 from pyscipopt import LP
 
 
-def b_inverse(filepath: str):
-    """ b_inverse(filepath) -> b_inv
-        --- computes inverse basis matrix
-    Input:
-        filepath --- path to .lp file with task description
-    Output:
-        b_inv --- inverse basis matrix
-    """
+def read_lp_write_mps(filepath: str) -> (LP, np.array):
     # read .lp file
     lp = LP()
     lp.readLP(bytes(filepath, encoding='utf-8'))
-    # solve LP relaxation and get basis indexes
-    lp.solve()
-    basis_indexes = lp.getBasisInds()
-    # write and read with pysmps .mps file
+    # write .mps file
     new_filepath = copy(filepath).replace(".lp", ".mps")
     lp.writeLP(bytes(new_filepath, encoding='utf-8'))
-    columns = np.transpose(mps.load_mps(new_filepath)[7])
+    # get instance matrix from .mps file
+    a_matrix = mps.load_mps(new_filepath)[7]
+    return lp, a_matrix
+
+
+def compute_b_inverse(lp: LP, a_matrix: np.array) -> np.array:
+    lp.solve()
+    basis_indexes = lp.getBasisInds()
+    # get columns of constraint matrix
+    columns = np.transpose(a_matrix)
     # compute basis matrix
     k = len(basis_indexes)
     b_matrix = []
@@ -36,10 +35,29 @@ def b_inverse(filepath: str):
             column[-index - 1] = 1
             b_matrix.append(column)
     b_matrix = np.array(b_matrix)
-    print(b_matrix)
     b_inv = inv(np.transpose(b_matrix))
     return b_inv
 
 
+def b_inverse(filepath: str) -> np.array:
+    """Compute the inverse of basis matrix"""
+    lp, a_matrix = read_lp_write_mps(filepath)
+    return compute_b_inverse(lp, a_matrix)
+
+
+def b_inverse_a(filepath: str) -> np.array:
+    """Compute B^(-1) * A"""
+    lp, a_matrix = read_lp_write_mps(filepath)
+    return compute_b_inverse(lp, a_matrix) @ a_matrix
+
+
+def write_matrix(filepath: str) -> None:
+    return
+
+
 if __name__ == "__main__":
+    print(b_inverse.__doc__)
     print(b_inverse("tests/task.lp"))
+    print(b_inverse_a.__doc__)
+    print(b_inverse_a("tests/task.lp"))
+
