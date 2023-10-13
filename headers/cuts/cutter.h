@@ -22,4 +22,4 @@ class Cutter {
     std::vector<CutGenerator> cut_generators_;
 };
 
-#endif CUTTER_H
+#endif //CUTTER_H
