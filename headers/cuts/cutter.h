@@ -5,6 +5,8 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+
 
 class Cutter {
     struct Cut{
@@ -20,6 +22,11 @@ class Cutter {
     };
 
     std::vector<CutGenerator> cut_generators_;
+
+public:
+    Cutter(std::vector<CutGenerator> cut_generators);
+
+    Cutter();
 };
 
 #endif //CUTTER_H

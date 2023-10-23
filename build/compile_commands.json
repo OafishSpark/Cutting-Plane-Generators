@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/mnt/d/dev/Cutting-Plane-Generators/build",
+  "command": "/usr/bin/g++    -std=c++17 -Wall -g -o CMakeFiles/Cutting_Plane_Generators.dir/main.cpp.o -c /mnt/d/dev/Cutting-Plane-Generators/main.cpp",
+  "file": "/mnt/d/dev/Cutting-Plane-Generators/main.cpp"
+},
+{
+  "directory": "/mnt/d/dev/Cutting-Plane-Generators/build",
+  "command": "/usr/bin/g++    -std=c++17 -Wall -g -o CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/cutter.cpp.o -c /mnt/d/dev/Cutting-Plane-Generators/src/cuts/cutter.cpp",
+  "file": "/mnt/d/dev/Cutting-Plane-Generators/src/cuts/cutter.cpp"
+},
+{
+  "directory": "/mnt/d/dev/Cutting-Plane-Generators/build",
+  "command": "/usr/bin/g++    -std=c++17 -Wall -g -o CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o -c /mnt/d/dev/Cutting-Plane-Generators/src/parser/parser.cpp",
+  "file": "/mnt/d/dev/Cutting-Plane-Generators/src/parser/parser.cpp"
+}
+]

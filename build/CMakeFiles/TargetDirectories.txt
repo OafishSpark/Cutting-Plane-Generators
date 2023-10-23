@@ -1,0 +1,3 @@
+/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles/Cutting_Plane_Generators.dir
+/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles/edit_cache.dir
+/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles/rebuild_cache.dir
