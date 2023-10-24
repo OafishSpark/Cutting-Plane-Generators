@@ -4,7 +4,7 @@ import numpy as np
 from numpy.linalg import inv
 
 from pysmps import smps_loader as mps
-from pyscipopt import LP
+from pyscipopt import LP, Model
 
 
 def read_lp_write_mps(filepath: str) -> (LP, np.array):
@@ -61,17 +61,19 @@ def write_matrix(matrix: np.array, name: str = "Instance") -> None:
         f.write(answer)
 
 
-def print_matrix(matrix: np.array) -> None:
-    print('\n'.join([" ".join(list(map(str, line))) for line in matrix]))
+def print_matrix(matrix: np.array) -> str:
+    return '\n'.join([" ".join(list(map(str, line))) for line in matrix])
 
 
 def get_prepared_for_gmi(filepath: str):
     # read .lp
     lp = LP()
     lp.readLP(bytes(filepath, encoding='utf-8'))
+    milp = Model()
+    milp.readProblem(filepath)
     # write .mps file
     new_filepath = copy(filepath).replace(".lp", ".mps")
-    lp.writeLP(bytes(new_filepath, encoding='utf-8'))
+    milp.writeProblem(new_filepath)
     # get data from .mps file
     parsed_mps = mps.load_mps(new_filepath)
     a_matrix = parsed_mps[7]
@@ -83,6 +85,7 @@ def get_prepared_for_gmi(filepath: str):
     else:
         bounds_lo, bounds_up = [np.zeros((a_matrix.shape[1])), np.ones((a_matrix.shape[1])) * np.inf]
     lp.solve()
+    solution = lp.getPrimal()
     basis_indexes = lp.getBasisInds()
     # get columns of constraint matrix
     columns = np.transpose(a_matrix)
@@ -102,19 +105,23 @@ def get_prepared_for_gmi(filepath: str):
         "A": a_matrix, 
         "rhs_signs": rhs_signs,
         "rhs_values": rhs_values,
+        "is_integer": is_integer,
         "bnd_lo": bounds_lo,
         "bnd_up": bounds_up,
         "basis_inds": basis_indexes,
+        "sol": solution,
         "b_inv": b_inv
         }
 
 
 def print_gmi_data(filepath: str):
     tmp_dict = get_prepared_for_gmi(filepath)
+    answer = ""
     for key, value in zip(tmp_dict.keys(), tmp_dict.values()):
-        print(key)
+        answer += key + '\n'
         if key == "A" or key == "b_inv":
-            print_matrix(value)
+            answer += f'{value.shape[0]} {value.shape[1]}' + '\n'
+            answer += print_matrix(value) + '\n'
         else:
-            print(" ".join(list(map(str, value))))
-    
+            answer += " ".join(list(map(str, value))) + '\n'
+    return answer

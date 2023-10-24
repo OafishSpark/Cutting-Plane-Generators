@@ -2,6 +2,8 @@
 #define CUTTER_H
 
 #include "../utils/utils.h"
+#include "../parser/parser.h"
+#include "../linalg/linalg.h"
 
 #include <vector>
 #include <string>
@@ -9,8 +11,9 @@
 
 
 class Cutter {
+public:
     struct Cut{
-        // SparseVector lhs;
+        SparseVector lhs;
         Scalar rhs;
         Scalar estimation;
         bool removed;
@@ -23,10 +26,13 @@ class Cutter {
 
     std::vector<CutGenerator> cut_generators_;
 
-public:
-    Cutter(std::vector<CutGenerator> cut_generators);
+    Model* model_;
 
-    Cutter();
+    Cutter(Model*, std::vector<CutGenerator> cut_generators);
+    
+    Cutter(Model*);
+
+    std::vector<Cut> GomoryMixedIntegerCutGenerator();
 };
 
 #endif //CUTTER_H

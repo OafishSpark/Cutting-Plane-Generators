@@ -1,0 +1,22 @@
+A
+2 2
+4.0 3.0
+3.0 4.0
+rhs_signs
+L L
+rhs_values
+10.0 10.0
+is_integer
+continuous continuous
+bnd_lo
+0.0 0.0
+bnd_up
+inf inf
+basis_inds
+0 1
+sol
+1.4285714285714284 1.4285714285714288
+b_inv
+2 2
+0.5714285714285714 -0.42857142857142855
+-0.42857142857142855 0.5714285714285714

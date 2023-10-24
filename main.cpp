@@ -1,6 +1,7 @@
 #include "./headers/cuts/cutter.h"
 #include "./headers/parser/parser.h"
 #include "./headers/utils/utils.h"
+#include "./headers/linalg/linalg.h"
 
 #include <iostream>
 #include <string>
@@ -12,17 +13,14 @@ int main(int argc, char* argv[]) {
     if (argc > 1) {
         filepath = argv[1];
     } else {
-        filepath = "files/b-inv.txt";
+        filepath = "files/data.txt";
     }
     std::cout << filepath << std::endl;
-    DenseMatrix b_inv = ReadBinv(filepath);
-    for (const auto& dense_vector: b_inv) {
-        for (const auto& elem: dense_vector) {
-            std::cout << elem << " ";
-        }
-        std::cout << std::endl;
-    }
-    Cutter c1;
+
+    Model model(filepath);
+
+    Cutter c1(&model);
+
     std::cout << "Message!" << std::endl;
     return 0;
 }

@@ -177,6 +177,54 @@ src/cuts/cutter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cutting_Plane_Generators.dir/build.make CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/cutter.cpp.s
 .PHONY : src/cuts/cutter.cpp.s
 
+src/cuts/gmi.o: src/cuts/gmi.cpp.o
+.PHONY : src/cuts/gmi.o
+
+# target to build an object file
+src/cuts/gmi.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cutting_Plane_Generators.dir/build.make CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o
+.PHONY : src/cuts/gmi.cpp.o
+
+src/cuts/gmi.i: src/cuts/gmi.cpp.i
+.PHONY : src/cuts/gmi.i
+
+# target to preprocess a source file
+src/cuts/gmi.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cutting_Plane_Generators.dir/build.make CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.i
+.PHONY : src/cuts/gmi.cpp.i
+
+src/cuts/gmi.s: src/cuts/gmi.cpp.s
+.PHONY : src/cuts/gmi.s
+
+# target to generate assembly for a file
+src/cuts/gmi.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cutting_Plane_Generators.dir/build.make CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.s
+.PHONY : src/cuts/gmi.cpp.s
+
+src/linalg/linalg.o: src/linalg/linalg.cpp.o
+.PHONY : src/linalg/linalg.o
+
+# target to build an object file
+src/linalg/linalg.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cutting_Plane_Generators.dir/build.make CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o
+.PHONY : src/linalg/linalg.cpp.o
+
+src/linalg/linalg.i: src/linalg/linalg.cpp.i
+.PHONY : src/linalg/linalg.i
+
+# target to preprocess a source file
+src/linalg/linalg.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cutting_Plane_Generators.dir/build.make CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.i
+.PHONY : src/linalg/linalg.cpp.i
+
+src/linalg/linalg.s: src/linalg/linalg.cpp.s
+.PHONY : src/linalg/linalg.s
+
+# target to generate assembly for a file
+src/linalg/linalg.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cutting_Plane_Generators.dir/build.make CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.s
+.PHONY : src/linalg/linalg.cpp.s
+
 src/parser/parser.o: src/parser/parser.cpp.o
 .PHONY : src/parser/parser.o
 
@@ -216,6 +264,12 @@ help:
 	@echo "... src/cuts/cutter.o"
 	@echo "... src/cuts/cutter.i"
 	@echo "... src/cuts/cutter.s"
+	@echo "... src/cuts/gmi.o"
+	@echo "... src/cuts/gmi.i"
+	@echo "... src/cuts/gmi.s"
+	@echo "... src/linalg/linalg.o"
+	@echo "... src/linalg/linalg.i"
+	@echo "... src/linalg/linalg.s"
 	@echo "... src/parser/parser.o"
 	@echo "... src/parser/parser.i"
 	@echo "... src/parser/parser.s"

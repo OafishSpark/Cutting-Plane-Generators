@@ -1,18 +1,22 @@
-NAME          MPSDATA
+* SCIP STATISTICS
+*   Problem name     : /mnt/d/dev/Cutting-Plane-Generators/files/task.lp
+*   Variables        : 2 (0 binary, 0 integer, 0 implicit integer, 2 continuous)
+*   Constraints      : 2
+NAME          /mnt/d/dev/Cutting-Plane-Generators/files/task.lp
+OBJSENSE
+  MIN
 ROWS
- L  C0      
- L  C1      
- L  C2      
- N  MINIMIZE
+ N  Obj 
+ L  a1 
+ L  a2 
 COLUMNS
-    x0      C2        2.000000000000000   C1        3.000000000000000
-    x0      C0        4.000000000000000
-    x0      MINIMIZE  -1.000000000000000
-    x1      C2        3.000000000000000   C1        4.000000000000000
-    x1      C0        3.000000000000000
-    x1      MINIMIZE  -1.100000000000000
+    x         Obj                             -1  a1                               4 
+    x         a2                               3 
+    y         Obj                           -1.1  a1                               3 
+    y         a2                               4 
 RHS
-    RHS     C0        10.000000000000000   C1        10.000000000000000
-    RHS     C2        40.000000000000000
+    RHS       a1                              10  a2                              10 
 BOUNDS
+ PL Bound     x                                  
+ PL Bound     y                                  
 ENDATA

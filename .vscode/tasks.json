@@ -9,7 +9,9 @@
                 "-g",
                 "${file}",
                 "${fileDirname}/src/cuts/cutter.cpp",
+                "${fileDirname}/src/cuts/gmi.cpp",
                 "${fileDirname}/src/parser/parser.cpp",
+                "${fileDirname}/src/linalg/linalg.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

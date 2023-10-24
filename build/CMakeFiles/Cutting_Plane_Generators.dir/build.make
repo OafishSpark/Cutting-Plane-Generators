@@ -97,10 +97,24 @@ CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/cutter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/cutter.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/dev/Cutting-Plane-Generators/src/cuts/cutter.cpp -o CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/cutter.cpp.s
 
+CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o: CMakeFiles/Cutting_Plane_Generators.dir/flags.make
+CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o: ../src/cuts/gmi.cpp
+CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o: CMakeFiles/Cutting_Plane_Generators.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o -MF CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o.d -o CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o -c /mnt/d/dev/Cutting-Plane-Generators/src/cuts/gmi.cpp
+
+CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/dev/Cutting-Plane-Generators/src/cuts/gmi.cpp > CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.i
+
+CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/dev/Cutting-Plane-Generators/src/cuts/gmi.cpp -o CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.s
+
 CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o: CMakeFiles/Cutting_Plane_Generators.dir/flags.make
 CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o: ../src/parser/parser.cpp
 CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o: CMakeFiles/Cutting_Plane_Generators.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o -MF CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o.d -o CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o -c /mnt/d/dev/Cutting-Plane-Generators/src/parser/parser.cpp
 
 CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.i: cmake_force
@@ -111,21 +125,39 @@ CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/dev/Cutting-Plane-Generators/src/parser/parser.cpp -o CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.s
 
+CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o: CMakeFiles/Cutting_Plane_Generators.dir/flags.make
+CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o: ../src/linalg/linalg.cpp
+CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o: CMakeFiles/Cutting_Plane_Generators.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o -MF CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o.d -o CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o -c /mnt/d/dev/Cutting-Plane-Generators/src/linalg/linalg.cpp
+
+CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/dev/Cutting-Plane-Generators/src/linalg/linalg.cpp > CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.i
+
+CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/dev/Cutting-Plane-Generators/src/linalg/linalg.cpp -o CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.s
+
 # Object files for target Cutting_Plane_Generators
 Cutting_Plane_Generators_OBJECTS = \
 "CMakeFiles/Cutting_Plane_Generators.dir/main.cpp.o" \
 "CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/cutter.cpp.o" \
-"CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o"
+"CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o" \
+"CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o" \
+"CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o"
 
 # External object files for target Cutting_Plane_Generators
 Cutting_Plane_Generators_EXTERNAL_OBJECTS =
 
 Cutting_Plane_Generators: CMakeFiles/Cutting_Plane_Generators.dir/main.cpp.o
 Cutting_Plane_Generators: CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/cutter.cpp.o
+Cutting_Plane_Generators: CMakeFiles/Cutting_Plane_Generators.dir/src/cuts/gmi.cpp.o
 Cutting_Plane_Generators: CMakeFiles/Cutting_Plane_Generators.dir/src/parser/parser.cpp.o
+Cutting_Plane_Generators: CMakeFiles/Cutting_Plane_Generators.dir/src/linalg/linalg.cpp.o
 Cutting_Plane_Generators: CMakeFiles/Cutting_Plane_Generators.dir/build.make
 Cutting_Plane_Generators: CMakeFiles/Cutting_Plane_Generators.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Cutting_Plane_Generators"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Cutting_Plane_Generators"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Cutting_Plane_Generators.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
