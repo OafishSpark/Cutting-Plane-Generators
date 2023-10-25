@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/d/dev/Cutting-Plane-Generators
+CMAKE_SOURCE_DIR = /mnt/d/Projects/Cutting-Plane-Generators
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/d/dev/Cutting-Plane-Generators/build
+CMAKE_BINARY_DIR = /mnt/d/Projects/Cutting-Plane-Generators/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/Cutting_Plane_Generators.dir/clean
 CMakeFiles/Cutting_Plane_Generators.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cutting_Plane_Generators.dir/build.make CMakeFiles/Cutting_Plane_Generators.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cutting_Plane_Generators.dir/build.make CMakeFiles/Cutting_Plane_Generators.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Cutting_Plane_Generators"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/Projects/Cutting-Plane-Generators/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Cutting_Plane_Generators"
 .PHONY : CMakeFiles/Cutting_Plane_Generators.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Cutting_Plane_Generators.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Projects/Cutting-Plane-Generators/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Cutting_Plane_Generators.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Projects/Cutting-Plane-Generators/build/CMakeFiles 0
 .PHONY : CMakeFiles/Cutting_Plane_Generators.dir/rule
 
 # Convenience name for target.

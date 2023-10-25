@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/d/dev/Cutting-Plane-Generators
+# Install script for directory: /mnt/d/Projects/Cutting-Plane-Generators
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/d/dev/Cutting-Plane-Generators/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/d/Projects/Cutting-Plane-Generators/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

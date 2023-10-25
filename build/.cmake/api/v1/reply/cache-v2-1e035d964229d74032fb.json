@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/mnt/d/dev/Cutting-Plane-Generators/build"
+			"value" : "/mnt/d/Projects/Cutting-Plane-Generators/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -418,18 +418,6 @@
 			"value" : "CMAKE_DLLTOOL-NOTFOUND"
 		},
 		{
-			"name" : "CMAKE_EDIT_COMMAND",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Path to cache edit program executable."
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/home/ivan/miniconda3/envs/test-env/bin/ccmake"
-		},
-		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
 			"properties" : 
 			[
@@ -546,18 +534,6 @@
 			"value" : ""
 		},
 		{
-			"name" : "CMAKE_FIND_PACKAGE_REDIRECTS_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake."
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/mnt/d/dev/Cutting-Plane-Generators/build/CMakeFiles/pkgRedirects"
-		},
-		{
 			"name" : "CMAKE_GENERATOR",
 			"properties" : 
 			[
@@ -615,7 +591,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/mnt/d/dev/Cutting-Plane-Generators"
+			"value" : "/mnt/d/Projects/Cutting-Plane-Generators"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1151,7 +1127,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/d/dev/Cutting-Plane-Generators/build"
+			"value" : "/mnt/d/Projects/Cutting-Plane-Generators/build"
 		},
 		{
 			"name" : "Cutting_Plane_Generators_IS_TOP_LEVEL",
@@ -1175,19 +1151,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/d/dev/Cutting-Plane-Generators"
-		},
-		{
-			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "linker supports push/pop state"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "TRUE"
+			"value" : "/mnt/d/Projects/Cutting-Plane-Generators"
 		}
 	],
 	"kind" : "cache",

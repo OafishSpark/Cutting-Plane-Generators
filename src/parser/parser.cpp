@@ -13,7 +13,7 @@ std::vector<std::vector<Scalar>> ReadBinv(std::string filepath)
         while (std::getline(line_stream, elem, ' ')) {
             if (elem != "") {
                 Scalar d_elem = std::stod(elem);
-                if (abs(d_elem) < Zero_Epsilon) {
+                if (Abs(d_elem) < kZero_Epsilon) {
                     d_elem = 0.0;
                 }
                 answer.back().push_back(d_elem);
@@ -24,7 +24,6 @@ std::vector<std::vector<Scalar>> ReadBinv(std::string filepath)
     b_inv_file.close();
     return answer;
 }
-
 
 Model::Model(std::string filepath) {
     std::ifstream file(filepath);
@@ -38,18 +37,18 @@ Model::Model(std::string filepath) {
             std::getline(file, line);
             line_stream = std::istringstream(line);
             std::getline(line_stream, elem, ' ');
-            Index rows = std::stoi(elem);
+            int rows = std::stoi(elem);
             std::getline(line_stream, elem, ' ');
-            Index cols = std::stoi(elem);
+            int cols = std::stoi(elem);
             DenseMatrix a_temp;
             a_temp.resize(rows, std::vector<Scalar>(cols));
-            for (Index iv = 0; iv < rows; ++iv) {
+            for (int iv = 0; iv < rows; ++iv) {
                 std::getline(file, line);
                 line_stream = std::istringstream(line);
-                for (Index jv = 0; jv < cols; ++jv) {
+                for (int jv = 0; jv < cols; ++jv) {
                     std::getline(line_stream, elem, ' ');
                     Scalar temp = std::stod(elem);
-                    if (Abs(temp) < Zero_Epsilon) {
+                    if (Abs(temp) < kZero_Epsilon) {
                         temp = 0.0;
                     }
                     a_temp[iv][jv] = temp;
@@ -61,7 +60,7 @@ Model::Model(std::string filepath) {
             line_stream = std::istringstream(line);
             rhs_ = RHS();
             rhs_.rhs_.resize(a_matrix_.rows_, RHS::Elem({'L', 0}));
-            for (Index iv = 0; iv < a_matrix_.rows_; ++iv) {
+            for (int iv = 0; iv < a_matrix_.rows_; ++iv) {
                 std::getline(line_stream, elem, ' ');
                 rhs_.rhs_[iv].type_ = elem[0];
             }
@@ -69,10 +68,10 @@ Model::Model(std::string filepath) {
             assert(line == "rhs_values");
             std::getline(file, line);
             line_stream = std::istringstream(line);
-            for (Index iv = 0; iv < a_matrix_.rows_; ++iv) {
+            for (int iv = 0; iv < a_matrix_.rows_; ++iv) {
                 std::getline(line_stream, elem, ' ');
                 Scalar temp = std::stod(elem);
-                if (Abs(temp) < Zero_Epsilon) {
+                if (Abs(temp) < kZero_Epsilon) {
                     temp = 0.0;
                 }
                 rhs_.rhs_[iv].val_ = temp;
@@ -81,10 +80,10 @@ Model::Model(std::string filepath) {
             std::getline(file, line);
             line_stream = std::istringstream(line);
             vars_ = Variables();
-            vars_.vars_.resize(a_matrix_.cols_, Variables::Elem({false, 0.0, Inf}));
-            for (Index iv = 0; iv < a_matrix_.cols_; ++iv) {
+            vars_.vars_.resize(a_matrix_.cols_, Variables::Elem({false, 0.0, kInf}));
+            for (int iv = 0; iv < a_matrix_.cols_; ++iv) {
                 std::getline(line_stream, elem, ' ');
-                if (elem == "integer") {
+                if (elem == "integral") {
                     vars_.vars_[iv].is_int_ = true;
                 } else if (elem == "continuous") {
                     vars_.vars_[iv].is_int_ = false;
@@ -96,13 +95,13 @@ Model::Model(std::string filepath) {
             assert(line == "bnd_lo");
             std::getline(file, line);
             line_stream = std::istringstream(line);
-            for (Index iv = 0; iv < a_matrix_.cols_; ++iv) {
+            for (int iv = 0; iv < a_matrix_.cols_; ++iv) {
                 std::getline(line_stream, elem, ' ');
                 if (elem == "-inf") {
-                    elem == "-1E10";
+                    elem = "-1E10";
                 }
                 Scalar temp = std::stod(elem);
-                if (Abs(temp) < Zero_Epsilon) {
+                if (Abs(temp) < kZero_Epsilon) {
                     temp = 0.0;
                 }
                 vars_.vars_[iv].bnd_lo_ = temp;
@@ -111,13 +110,13 @@ Model::Model(std::string filepath) {
             assert(line == "bnd_up");
             std::getline(file, line);
             line_stream = std::istringstream(line);
-            for (Index iv = 0; iv < a_matrix_.cols_; ++iv) {
+            for (int iv = 0; iv < a_matrix_.cols_; ++iv) {
                 std::getline(line_stream, elem, ' ');
                 if (elem == "inf") {
-                    elem == "1E10";
+                    elem = "1E10";
                 }
                 Scalar temp = std::stod(elem);
-                if (Abs(temp) < Zero_Epsilon) {
+                if (Abs(temp) < kZero_Epsilon) {
                     temp = 0.0;
                 }
                 vars_.vars_[iv].bnd_up_ = temp;
@@ -127,7 +126,7 @@ Model::Model(std::string filepath) {
             basis_.resize(a_matrix_.rows_, 0);
             std::getline(file, line);
             line_stream = std::istringstream(line);
-            for (Index iv = 0; iv < a_matrix_.rows_; ++iv) {
+            for (int iv = 0; iv < a_matrix_.rows_; ++iv) {
                 std::getline(line_stream, elem, ' ');
                 basis_[iv] = std::stoi(elem);
             }
@@ -136,10 +135,10 @@ Model::Model(std::string filepath) {
             sol_.resize(a_matrix_.cols_, 0.0);
             std::getline(file, line);
             line_stream = std::istringstream(line);
-            for (Index iv = 0; iv < a_matrix_.cols_; ++iv) {
+            for (int iv = 0; iv < a_matrix_.cols_; ++iv) {
                 std::getline(line_stream, elem, ' ');
                 Scalar temp = std::stod(elem);
-                if (Abs(temp) < Zero_Epsilon) {
+                if (Abs(temp) < kZero_Epsilon) {
                     temp = 0.0;
                 }
                 sol_[iv] = temp;
@@ -148,18 +147,18 @@ Model::Model(std::string filepath) {
             std::getline(file, line);
             line_stream = std::istringstream(line);
             std::getline(line_stream, elem);
-            Index rows = std::stoi(elem);
+            int rows = std::stoi(elem);
             std::getline(line_stream, elem);
-            Index cols = std::stoi(elem);
+            int cols = std::stoi(elem);
             b_inv_ = DenseMatrix();
             b_inv_.resize(rows, std::vector<Scalar>(cols));
-            for (Index iv = 0; iv < rows; ++iv) {
+            for (int iv = 0; iv < rows; ++iv) {
                 std::getline(file, line);
                 line_stream = std::istringstream(line);
-                for (Index jv = 0; jv < cols; ++jv) {
+                for (int jv = 0; jv < cols; ++jv) {
                     std::getline(line_stream, elem, ' ');
                     Scalar temp = std::stod(elem);
-                    if (Abs(temp) < Zero_Epsilon) {
+                    if (Abs(temp) < kZero_Epsilon) {
                         temp = 0.0;
                     } 
                     b_inv_[iv][jv] = temp; 

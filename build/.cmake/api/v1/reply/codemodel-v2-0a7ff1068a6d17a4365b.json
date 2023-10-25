@@ -45,8 +45,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/mnt/d/dev/Cutting-Plane-Generators/build",
-		"source" : "/mnt/d/dev/Cutting-Plane-Generators"
+		"build" : "/mnt/d/Projects/Cutting-Plane-Generators/build",
+		"source" : "/mnt/d/Projects/Cutting-Plane-Generators"
 	},
 	"version" : 
 	{

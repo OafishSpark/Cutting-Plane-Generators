@@ -12,30 +12,41 @@ class SparseVector {
 public:
     struct Elem {
         Scalar val_;
-        Index ind_;
+        int ind_;
     };
 
     std::vector<Elem> elements_;
-    Index len_;
+    int len_;
 
     SparseVector(std::vector<Scalar>& dense_vector);
-    SparseVector(Index len);
+    SparseVector(int len);
 
     void Print();
+
+    SparseVector::Elem operator[](int ind) { return elements_[ind]; }
 };
+
+Scalar operator*(std::vector<Scalar>, SparseVector);
+
+Scalar operator*(SparseVector, SparseVector);
 
 
 class SparseColMatrix {
 public:
     std::vector<SparseVector> matrix_;
-    Index rows_;
-    Index cols_;
+    int rows_;
+    int cols_;
 
     SparseColMatrix(DenseMatrix& dense_matrix);
 
     SparseColMatrix(){}
 
     void Print();
+
+    SparseVector operator[](int ind) {
+        assert(ind < cols_);
+        return matrix_[ind];
+    }
 };
 
 
@@ -47,6 +58,8 @@ public:
     };
 
     std::vector<Elem> rhs_;
+
+    RHS::Elem operator[](int ind) { return rhs_[ind]; }
 };
 
 
@@ -59,6 +72,8 @@ public:
     };
 
     std::vector<Elem> vars_;
+
+    Variables::Elem operator[](int ind) { return vars_[ind]; }
 };
 
 #endif //LINALG_H

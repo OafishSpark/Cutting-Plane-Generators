@@ -7,7 +7,7 @@ L L
 rhs_values
 10.0 10.0
 is_integer
-continuous continuous
+integral integral
 bnd_lo
 0.0 0.0
 bnd_up
