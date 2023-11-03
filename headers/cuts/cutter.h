@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <cassert>
 #include <algorithm>
 
@@ -41,6 +42,8 @@ public:
     Cutter(Model&);
 
     void AddCuts();
+
+    void WriteCutsInFile(std::vector<Cut>&);
 
     size_t RunGenerator(std::vector<Cut> (Cutter::*)());
 

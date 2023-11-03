@@ -7,7 +7,7 @@ OBJSENSE
   MIN
 ROWS
  N  Obj 
- E  a1 
+ L  a1 
  L  a2 
 COLUMNS
     INTSTART  'MARKER'                            'INTORG'                           

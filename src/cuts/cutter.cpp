@@ -22,13 +22,25 @@ Cutter::Cutter(Model& model) {
     cut_generators_ = std::vector<Cutter::CutGenerator>({Cutter::CutGenerator({"GMI1", &Cutter::GomoryMixedIntegerCutGenerator})}); 
 }
 
+void Cutter::WriteCutsInFile(std::vector<Cut>& cuts) {
+    std::string filepath = "files/cuts.txt";
+    std::ofstream file(filepath);
+    for (auto& cut: cuts) {
+        file << cut.lhs.PrintInFile() << " ";
+        file << ">= ";
+        file << cut.rhs << std::endl;
+    }
+    file.close();
+}
+
 size_t Cutter::RunGenerator(std::vector<Cut> (Cutter::*cut_generator_)()) {
     std::vector<Cut> cuts = (this->*cut_generator_)();
-    for (auto cut: cuts) {
+    for (auto& cut: cuts) {
         std::cout << cut.rhs; 
         cut.lhs.Print();
         std::cout << std::endl;
     }
+    WriteCutsInFile(cuts);
     return cuts.size();
 }
 

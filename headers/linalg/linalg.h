@@ -6,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+#include <string>
 
 
 class SparseVector {
@@ -22,6 +23,8 @@ public:
     SparseVector(int len);
 
     void Print();
+    
+    std::string PrintInFile();
 
     SparseVector::Elem operator[](int ind) { return elements_[ind]; }
 };

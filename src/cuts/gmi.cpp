@@ -2,8 +2,9 @@
 
 
 std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
-     std::vector<Cutter::Cut> cuts;
+    std::vector<Cutter::Cut> cuts;
     // compute which variables should be made negative
+    
     std::vector<bool> if_neg_var;
     if_neg_var.resize(a_matrix_.rows_ + a_matrix_.cols_, false);
     // l / u -- shift_val: x --> x - l or x --> u - x
@@ -17,14 +18,17 @@ std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
             shift_val[iv] = vars_[iv].bnd_lo_;
         }
     }
+    
     for (int iv = 0; iv < a_matrix_.rows_; ++iv) {
         assert(if_neg_var[if_neg_var.size()-iv-1] == false);
-        if (rhs_[iv].type_ == 'U') {
+        if (rhs_[iv].type_ == 'G') {
             if_neg_var[if_neg_var.size()-iv-1] = true;
+            shift_val[shift_val.size()-iv-1] = -rhs_[iv].val_;
         } else {
             shift_val[shift_val.size()-iv-1] = -rhs_[iv].val_;
         }
     }
+    
     // compute cuts only for basis integer variables
     for (const auto& basis_ind: basis_) {
         if (basis_ind < 0) {
@@ -101,7 +105,7 @@ std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
             cut[cut.size() - iv - 1] = c_i;
         }
         // Transform back
-        for (int iv = 0; iv < cut.size(); ++iv) {
+        for (size_t iv = 0; iv < cut.size(); ++iv) {
             if (Abs(cut[iv]) < kZero_Epsilon) {
                 continue;
             }

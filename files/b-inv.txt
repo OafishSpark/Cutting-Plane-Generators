@@ -1,0 +1,3 @@
+original problem has 2 variables (0 bin, 2 int, 0 impl, 0 cont) and 2 constraints
+./files/plane.lp
+wrote problem to file /mnt/d/dev/Cutting-Plane-Generators/files/plane.mps

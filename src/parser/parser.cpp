@@ -165,6 +165,9 @@ Model::Model(std::string filepath) {
                 }
             }
         } else {
+            if (line == "") {
+                continue;
+            }
             assert(false);
         }
     }

@@ -29,6 +29,14 @@ void SparseVector::Print() {
     std::cout << " len=" << len_ << "\n";
 }
 
+std::string SparseVector::PrintInFile() {
+    std::string answer = "";
+    for (auto elem : elements_) {
+        answer += " " + std::to_string(elem.ind_) + "," + std::to_string(elem.val_);       
+    }
+    return answer;
+}
+
 Scalar operator*(std::vector<Scalar> dns_vec, SparseVector sprs_vec) {
     assert(dns_vec.size() == sprs_vec.len_);
     Scalar answer = 0;

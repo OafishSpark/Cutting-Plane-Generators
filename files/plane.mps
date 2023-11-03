@@ -1,8 +1,8 @@
 * SCIP STATISTICS
-*   Problem name     : /mnt/d/Projects/Cutting-Plane-Generators/files/plane.lp
+*   Problem name     : /mnt/d/dev/Cutting-Plane-Generators/files/plane.lp
 *   Variables        : 2 (0 binary, 2 integer, 0 implicit integer, 0 continuous)
 *   Constraints      : 2
-NAME          /mnt/d/Projects/Cutting-Plane-Generators/files/plane.lp
+NAME          /mnt/d/dev/Cutting-Plane-Generators/files/plane.lp
 OBJSENSE
   MIN
 ROWS
@@ -19,6 +19,6 @@ COLUMNS
 RHS
     RHS       a1                             -10  a2                              90 
 BOUNDS
- UP Bound     x                                9 
+ PL Bound     x                                  
  PL Bound     y                                  
 ENDATA
