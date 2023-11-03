@@ -15,8 +15,6 @@ Cutter::Cutter(Model& model) {
     a_matrix_ = model.a_matrix_;
     b_inv_ = model.b_inv_;
     rhs_ = model.rhs_;
-
-
     vars_ = model.vars_;
     sol_ = model.sol_;
     basis_ = model.basis_;

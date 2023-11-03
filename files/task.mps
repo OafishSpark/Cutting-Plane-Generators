@@ -8,7 +8,7 @@ OBJSENSE
 ROWS
  N  Obj 
  L  a1 
- L  a2 
+ E  a2 
 COLUMNS
     INTSTART  'MARKER'                            'INTORG'                           
     x         Obj                             -1  a1                               4 

@@ -2,26 +2,28 @@
 
 
 std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
-    std::vector<Cutter::Cut> cuts;
+     std::vector<Cutter::Cut> cuts;
     // compute which variables should be made negative
     std::vector<bool> if_neg_var;
     if_neg_var.resize(a_matrix_.rows_ + a_matrix_.cols_, false);
     // l / u -- shift_val: x --> x - l or x --> u - x
     std::vector<Scalar> shift_val(a_matrix_.rows_ + a_matrix_.cols_, 0.0);
     for (int iv = 0; iv < a_matrix_.cols_; ++iv) {
-        if (vars_[iv].bnd_lo_ == -kInf) {
+        if ((vars_[iv].bnd_lo_ == -kInf) or (Abs(vars_[iv].bnd_up_ - sol_[iv])) < kZero_Epsilon) {
             assert(Abs(vars_[iv].bnd_up_) < kInf);
             if_neg_var[iv] = true;
             shift_val[iv] = vars_[iv].bnd_up_;
+        } else {
+            shift_val[iv] = vars_[iv].bnd_lo_;
         }
-        shift_val[iv] = vars_[iv].bnd_lo_;
     }
     for (int iv = 0; iv < a_matrix_.rows_; ++iv) {
         assert(if_neg_var[if_neg_var.size()-iv-1] == false);
         if (rhs_[iv].type_ == 'U') {
             if_neg_var[if_neg_var.size()-iv-1] = true;
+        } else {
+            shift_val[shift_val.size()-iv-1] = -rhs_[iv].val_;
         }
-        shift_val[shift_val.size()-iv-1] = -rhs_[iv].val_;
     }
     // compute cuts only for basis integer variables
     for (const auto& basis_ind: basis_) {
@@ -122,9 +124,9 @@ std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
         // Estimate it by finding Euclidean distance to relaxation solution
         SparseVector lhv(cut); 
         Scalar violation = sol_ * lhv - gamma;
-        if (violation > Scalar(0)) {
-            continue;
-        }
+        // if (violation > Scalar(0)) {
+        //     continue;
+        // }
         Scalar estimation = (violation * violation) / (lhv * lhv);
 
         // Add cut to temporary pool
