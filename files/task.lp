@@ -1,8 +1,8 @@
 Minimize
-obj: - x - 1.1 y
+obj: 11 x - 13.1 y
 Subject To
-a1: -4 x + -3 y >= -10
-a2: 3 x + 4 y <= 10
+a1: -11 x + 13 y <= -10
+a2: x + 10 y <= 90
 Generals
 x y
 End

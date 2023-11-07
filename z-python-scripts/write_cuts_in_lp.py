@@ -18,7 +18,7 @@ if __name__ == "__main__":
         i = 0
         for line in file:
             if line == "": break
-            answer += "c" + str(i) + ": "
+            answer += " c" + str(i) + ": "
             i += 1
             elems = line.split()
             for elem in elems:
@@ -28,13 +28,17 @@ if __name__ == "__main__":
                 ind, val = elem.split(",")
                 answer += val + " " + str(vars[int(ind)]) + " + "
             answer += ">= " + elems[-1] + "\n"
-    with open(task_path, 'r') as f:
-        with open(task_path.replace(".lp", "_cutted.lp"), 'w') as out:
-            for line in f:
-                out.write(line)
-                if line.strip() == "Subject To":
-                    out.write(answer)
-                
-                
-            
-
+    task_path = task_path.replace(".lp", "_cutted.lp")
+    task_path = task_path.replace(".mps", "_cutted.lp")
+    with open(task_path, 'w') as fu:
+        pass
+    print(task_path)
+    model.writeProblem(task_path)
+    lines = []
+    with open(task_path, 'r') as out:
+        lines = out.readlines()
+    with open(task_path, 'w') as out:
+        for line in lines:
+            out.write(line)
+            if line == 'Subject to\n':
+                out.write(answer)

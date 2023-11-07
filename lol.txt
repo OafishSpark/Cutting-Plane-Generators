@@ -1,0 +1,4 @@
+original problem has 2500 variables (1250 bin, 0 int, 0 impl, 1250 cont) and 1750 constraints
+files/cuts.txt tests_miplib/beasleyC3.mps
+tests_miplib/beasleyC3_cutted.lp
+wrote problem to file /mnt/d/dev/Cutting-Plane-Generators/tests_miplib/beasleyC3_cutted.lp

@@ -1,10 +1,15 @@
+\ SCIP STATISTICS
+\   Problem name     : /mnt/d/dev/Cutting-Plane-Generators/files/task.lp
+\   Variables        : 2 (0 binary, 2 integer, 0 implicit integer, 0 continuous)
+\   Constraints      : 2
 Minimize
-obj: - x - 1.1 y
-Subject To
-c0: 0.219512 x + -1.056911 y >= -5.93496
-c1: -0.032520 y >= -0.227642
-a1: -4 x + -3 y >= -10
-a2: 3 x + 4 y <= 10
+ Obj: +11 x -13.1 y
+Subject to
+ c0: -1.857143 x + -1.714286 y >= -4.85714
+ c1: -1.714286 x + -1.857143 y >= -4.85714
+ a1: -11 x +13 y <= -10
+ a2: +1 x +10 y <= +90
+Bounds
 Generals
-x y
+ x y
 End

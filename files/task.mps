@@ -7,17 +7,17 @@ OBJSENSE
   MIN
 ROWS
  N  Obj 
- G  a1 
+ L  a1 
  L  a2 
 COLUMNS
     INTSTART  'MARKER'                            'INTORG'                           
-    x         Obj                             -1  a1                              -4 
-    x         a2                               3 
-    y         Obj                           -1.1  a1                              -3 
-    y         a2                               4 
+    x         Obj                             11  a1                             -11 
+    x         a2                               1 
+    y         Obj                          -13.1  a1                              13 
+    y         a2                              10 
     INTEND    'MARKER'                            'INTEND'                           
 RHS
-    RHS       a1                             -10  a2                              10 
+    RHS       a1                             -10  a2                              90 
 BOUNDS
  PL Bound     x                                  
  PL Bound     y                                  

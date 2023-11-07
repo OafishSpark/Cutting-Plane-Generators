@@ -128,9 +128,10 @@ std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
         // Estimate it by finding Euclidean distance to relaxation solution
         SparseVector lhv(cut); 
         Scalar violation = sol_ * lhv - gamma;
-        // if (violation > Scalar(0)) {
-        //     continue;
-        // }
+        if (violation > Scalar(0)) {
+            // continue;
+            assert(false);
+        }
         Scalar estimation = (violation * violation) / (lhv * lhv);
 
         // Add cut to temporary pool

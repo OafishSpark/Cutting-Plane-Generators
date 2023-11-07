@@ -1,0 +1,5 @@
++ beasleyC3 753.9999999999128
+- ran14x18-disj-8 3712
++ roll3000 12889.999992
++ graph20-20-1rand -9
+- supportcase26 1745.123813
