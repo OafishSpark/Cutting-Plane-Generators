@@ -30,7 +30,8 @@ std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
     }
     
     // compute cuts only for basis integer variables
-    for (const auto& basis_ind: basis_) {
+    for (size_t kv = 0; kv < basis_.size(); ++kv) {
+        int basis_ind = basis_[kv];
         if (basis_ind < 0) {
             // if basis_ind < 0, then it refers to slack variable which is definitely not integer
             continue;
@@ -61,7 +62,7 @@ std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
                 continue;
             }
             Scalar c_i = 0;
-            Scalar t_ij = b_inv_[basis_ind] * a_matrix_[iv];
+            Scalar t_ij = b_inv_[kv] * a_matrix_[iv];
             if (if_neg_var[iv]) {
                 t_ij = -t_ij;
             }
@@ -90,7 +91,7 @@ std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
                 continue;
             }
             Scalar c_i = 0;
-            Scalar t_ij = b_inv_[basis_ind][iv];
+            Scalar t_ij = b_inv_[kv][iv];
             if (if_neg_var[if_neg_var.size() - iv - 1]) {
                 t_ij = -t_ij;
             }
@@ -126,11 +127,19 @@ std::vector<Cutter::Cut> Cutter::GomoryMixedIntegerCutGenerator() {
             cut[iv] -= slack_cut * a_matrix_[iv];
         }
         // Estimate it by finding Euclidean distance to relaxation solution
-        SparseVector lhv(cut); 
+        SparseVector lhv(cut);
+        if (lhv.len_ == 0) {
+            #ifdef ALL_ASSERTS
+            assert(false);
+            #endif
+            continue;
+        } 
         Scalar violation = sol_ * lhv - gamma;
         if (violation > Scalar(0)) {
-            // continue;
+            #ifdef ALL_ASSERTS
             assert(false);
+            #endif
+            continue;
         }
         Scalar estimation = (violation * violation) / (lhv * lhv);
 

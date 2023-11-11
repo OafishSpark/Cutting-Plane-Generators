@@ -38,7 +38,9 @@ std::string SparseVector::PrintInFile() {
 }
 
 Scalar operator*(std::vector<Scalar> dns_vec, SparseVector sprs_vec) {
-    assert(dns_vec.size() == sprs_vec.len_);
+    size_t a = dns_vec.size();
+    size_t b = sprs_vec.len_;
+    assert(a == b);
     Scalar answer = 0;
     for (const auto& elem: sprs_vec.elements_) {
         answer += elem.val_ * dns_vec.at(elem.ind_);

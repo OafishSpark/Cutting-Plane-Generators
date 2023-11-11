@@ -18,7 +18,6 @@ Cutter::Cutter(Model& model) {
     vars_ = model.vars_;
     sol_ = model.sol_;
     basis_ = model.basis_;
-    std::cout << "Nothing happens\n";
     cut_generators_ = std::vector<Cutter::CutGenerator>({Cutter::CutGenerator({"GMI1", &Cutter::GomoryMixedIntegerCutGenerator})}); 
 }
 
@@ -35,11 +34,11 @@ void Cutter::WriteCutsInFile(std::vector<Cut>& cuts) {
 
 size_t Cutter::RunGenerator(std::vector<Cut> (Cutter::*cut_generator_)()) {
     std::vector<Cut> cuts = (this->*cut_generator_)();
-    for (auto& cut: cuts) {
-        std::cout << cut.rhs; 
-        cut.lhs.Print();
-        std::cout << std::endl;
-    }
+    // for (auto& cut: cuts) {
+    //     std::cout << cut.rhs; 
+    //     cut.lhs.Print();
+    //     std::cout << std::endl;
+    // }
     WriteCutsInFile(cuts);
     return cuts.size();
 }
