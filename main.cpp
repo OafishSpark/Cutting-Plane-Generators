@@ -22,7 +22,5 @@ int main(int argc, char* argv[]) {
 
     Cutter c1(model);
     c1.AddCuts();
-
-    std::cout << "Message!" << std::endl;
     return 0;
 }
