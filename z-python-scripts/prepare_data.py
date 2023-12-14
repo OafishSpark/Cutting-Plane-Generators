@@ -5,14 +5,15 @@ from b_inv import print_matrix, b_inverse_a, b_inverse, get_prepared_for_gmi, pr
 
 
 try:
-    _, filepath = argv
+    _, filepath, new_path = argv
     print(filepath)
 except ValueError:
     filepath = "files/task.lp"
+    new_path = "files/data.txt"
 
 
 if __name__ == "__main__":
     ans = print_gmi_data(filepath)
-    new_path = "files/data.txt"
+    
     with open(new_path, 'w') as f:
         f.write(ans)
