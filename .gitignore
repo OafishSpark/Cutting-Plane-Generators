@@ -3,4 +3,4 @@ build/*
 files/zadacha.lp
 files/zadacha.mps
 files/zadacha_cutted.lp
-
+HiGHS/*
